@@ -68,9 +68,10 @@ Thumbnail JPEG quality and use-of-originals settings are stored in PostgreSQL an
 
 ## Access logs
 
-| Variable              | Default | Purpose                                                          |
-| --------------------- | ------- | ---------------------------------------------------------------- |
-| `DISABLE_ACCESS_LOGS` | `false` | Stops new public-link view/download logs and their notifications |
+| Variable              | Default | Purpose                                                                                 |
+| --------------------- | ------- | --------------------------------------------------------------------------------------- |
+| `DISABLE_ACCESS_LOGS` | `false` | Stops new public-link view/download logs and their notifications                        |
+| `HTTP_ACCESS_LOGS`    | `false` | Logs HTTP method, path, status, duration, client IP, and user agent to the normal logs |
 
 Existing rows are retained. Feedback notifications for comments, ratings, and flags use a different path and continue.
 

@@ -52,6 +52,7 @@ export interface IPicrConfiguration {
   updateMetadata: boolean;
   cachePath: string;
   mediaPath: string;
+  httpAccessLogs?: boolean;
   canWrite?: boolean;
   loginRateLimitEnabled?: boolean;
   loginRateLimitWindowMinutes?: number;

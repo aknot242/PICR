@@ -138,6 +138,7 @@ export const envSchema = z.object({
 
   DEBUG_SQL: castStringToBool,
   CONSOLE_LOGGING: castStringToBool,
+  HTTP_ACCESS_LOGS: castStringToBool,
   USE_POLLING: castStringToBool,
   CAN_WRITE: castStringToBool,
   LOGIN_RATE_LIMIT_ENABLED: castStringToBool.default(true),

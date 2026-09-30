@@ -9,10 +9,29 @@ import { resolvePublicDir } from './resolvePublicDir.js';
 import { drainOnViewScanRequests } from '../filesystem/onViewScan.js';
 import { createReadyz, healthz } from './health.js';
 import { registerMediaChangedRoute } from './mediaChanged.js';
+import { logger } from '../logger.js';
+import { picrConfig } from '../config/picrConfig.js';
 
 export const expressServer = () => {
   const exp = express();
   exp.set('trust proxy', 1);
+  if (picrConfig.httpAccessLogs) {
+    exp.use((req, res, next) => {
+      const startedAt = Date.now();
+      res.on('finish', () => {
+        logger.info({
+          type: 'http_access',
+          method: req.method,
+          path: req.path,
+          statusCode: res.statusCode,
+          durationMs: Date.now() - startedAt,
+          ip: req.ip,
+          userAgent: req.get('user-agent'),
+        });
+      });
+      next();
+    });
+  }
   exp.use(compression());
   const router = express.Router();
   const readyz = createReadyz();

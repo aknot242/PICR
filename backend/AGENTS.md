@@ -979,6 +979,7 @@ When changing `backend/config/*`, Docker `ARG`/`ENV` wiring, or startup code tha
 | `SCHEDULED_SCAN_HOURS` | `0`          | Whole-library reconcile interval, `0` disables  |
 | `DEBUG_SQL`            | `false`      | Log Drizzle queries                             |
 | `CONSOLE_LOGGING`      | `false`      | Winston console output                          |
+| `HTTP_ACCESS_LOGS`     | `false`      | Log HTTP requests to the normal log files      |
 | `DISABLE_ACCESS_LOGS`  | `false`      | Skip AccessLog rows + folder-view notifications |
 
 ---

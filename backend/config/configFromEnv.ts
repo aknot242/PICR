@@ -99,6 +99,7 @@ export const configFromEnv = () => {
 
     mediaPath,
     cachePath,
+    httpAccessLogs: d.HTTP_ACCESS_LOGS,
     canWrite: d.CAN_WRITE && writeProbe.canWrite,
   };
 
